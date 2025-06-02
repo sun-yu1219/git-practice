@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025 My Homepage</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #fdf4eb;
+    color: #333;
+  }
+
+  header {
+    display: flex;
+    justify-content: flex-end;
+    background: none;
+    padding: 1em 2em;
+  }
+
+  header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav ul li {
+    margin-left: 1em;
+  }
+
+  header nav ul li a {
+    color: #6c5d53;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0.3em 0.6em;
+    border-radius: 4px;
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  header nav ul li a:hover {
+    color: #c19a6b;
+    transform: scale(1.1);
+  }
+
+  main {
+    padding: 2em;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; 
+    font-size: 1.1em;   
+  }
+
+  main h1 {
+    border-bottom: 2px solid #c19a6b;
+    padding-bottom: 0.3em;
+    margin-bottom: 2em;  
+  }
+
+  main p {
+    margin-bottom: 3em; 
+    line-height: 1.6;  
+  }
+
+  main img {
+    max-width: 450px;
+    height: auto;
+    border-radius: 8px;
+    margin: 0.5em;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .hobby-item {
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1em;
+    color: #666;
+  }
+
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    header nav ul {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    header nav ul li {
+      margin: 0.3em 0;
+    }
+  }
+</style>
+
+
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+
+</head>
+<body>
+
+<header>
+  <nav>
+    <ul>
+      <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#introduction">👤 Introduction</a></li>
+      <li><a href="#hobby">🌿 Hobby</a></li>
+      <li><a href="#favorite">❤️ My Favorite</a></li>
+      <li><a href="#campus">🏫 Campus Life</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="content"></main>
+
+<footer>
+  &copy; 2025 My Homepage
+</footer>
+
+<script>
+
+  var routes = {
+    home: `
+      <h1>Welcome to My Homepage!</h1>
+      <p>Click on the menu to explore different pages about me.<br>
+        Thank you for visiting!
+      </p>
+      <p>
+        📧 <a href="mailto:csy0882@kangwon.ac.kr">csy0882@kangwon.ac.kr</a>
+      </p>
+    `,
+    introduction: `
+      <h1>Introduction</h1>
+      <img src="img/me.jpg" alt="My Photo">
+      <p>Hello, my name is Choi Seon-yu. I am 22 years old and my birthday is November 30th.<br>
+        I was born in Gangneung and am currently attending Kangwon National University’s Department of Business Administration, with a double major in Data Science.<br>
+        I started a double major because I was interested in Data Science, and I am particularly interested in Human Resources Management in Business Administration.<br>
+        I am also interested in performing arts, so I am expanding my interests to various fields and gaining experience.</p>
+    `,
+    hobby: `
+      <h1>My Hobby</h1>
+      <div class="gallery">
+        <div class="hobby-item">
+          <img src="img/hobby1.jpg" alt="Concert Photo 1">
+          <img src="img/hobby2.jpg" alt="Concert Photo 2">
+          <p>I like to listen to concerts and music. I like to enjoy the atmosphere of the concert hall, so I often watch concerts.</p>
+        </div>
+        <div class="hobby-item">
+          <img src="img/hobby3.jpeg" alt="Concert Photo 3">
+          <img src="img/hobby4.jpeg" alt="Concert Photo 4">
+          <p>In my free time, I enjoy reading books or watching dramas, especially novels,<br> and recently I read '사서함 110호 우편물.' I like "사랑의 온도" so I watched it over and over 3 times.</p>
+        </div>
+      </div>
+    `,
+    favorite: `
+      <h1>My Favorite</h1>
+      <img src="img/fav1.jpg" alt="Favorite Artist">
+      <p>What I really like is a band called 'DAY6'. <br>
+        I've been liking and supporting them for over five or six years since I was in high school.<br>
+        They're also a huge help to me.</p>
+    `,
+    campus: `
+      <h1>Campus Life</h1>
+      <img src="img/campus1.jpg" alt="Campus Photo1">
+      <img src="img/campus2.jpg" alt="Campus Photo2">
+      <p>Recently, I joined a theater club called '영그리'.
+        When I was in first and second grade, <br>
+        I was sorry that I couldn't do club activities because I was only working as a student council, but now I'm enjoying my college life as a staff member of the sound team.<br>
+        I was proud that I finished my recent performance safely, <br>and it was an opportunity for me to deepen my interest in the field of performing arts.</p>
+    `
+  };
+
+  
+  function loadContent(hash) {
+    var page = hash || 'home';
+    $('#content').html(routes[page] || routes.home);
+  }
+
+
+  $(document).ready(function() {
+
+    loadContent(location.hash.substring(1));
+
+
+    $(window).on('hashchange', function() {
+      loadContent(location.hash.substring(1));
+    });
+  });
+</script>
+
+</body>
+</html>
