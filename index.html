@@ -59,10 +59,20 @@
   }
 
   main img {
-    max-width: 100%;
+    max-width: 300px; /* 기존보다 작게 */
     height: auto;
     border-radius: 8px;
-    margin-top: 1em;
+    margin: 0.5em;
+  }
+
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .hobby-item {
+    text-align: center;
   }
 
   footer {
@@ -96,6 +106,7 @@
   <nav>
     <ul>
       <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#introduction">👤 Introduction</a></li>
       <li><a href="#hobby">🌿 Hobby</a></li>
       <li><a href="#favorite">❤️ My Favorite</a></li>
       <li><a href="#campus">🏫 Campus Life</a></li>
@@ -115,14 +126,28 @@
   // 페이지별 내용
   var routes = {
     home: `
+      <h1>Welcome to My Homepage!</h1>
+      <p>Click on the menu to explore different pages about me.</p>
+    `,
+    introduction: `
       <h1>Introduction</h1>
-      <img src="me.jpg" alt="My Photo">
+      <img src="https://github.com/sun-yu1219/git-practice/blob/master/me.jpg" alt="My Photo">
       <p>Hello! I'm Seonyu, a student studying data science.</p>
     `,
     hobby: `
       <h1>My Hobby</h1>
-      <img src="img/hobby.jpg" alt="Hobby Photo">
-      <p>I love traveling and capturing memories with my camera.</p>
+      <div class="gallery">
+        <div class="hobby-item">
+          <img src="img/concert1.jpg" alt="Concert Photo 1">
+          <img src="img/concert2.jpg" alt="Concert Photo 2">
+          <p>I love going to concerts. Music and energy are my favorites!</p>
+        </div>
+        <div class="hobby-item">
+          <img src="img/book1.jpg" alt="Reading Photo 1">
+          <img src="img/drama1.jpg" alt="Drama Photo 1">
+          <p>Watching dramas and reading books is another way to recharge.</p>
+        </div>
+      </div>
     `,
     favorite: `
       <h1>My Favorite</h1>
@@ -156,4 +181,3 @@
 
 </body>
 </html>
->>>>>>> 1d4e986 (index.html 수정)
