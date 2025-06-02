@@ -1,9 +1,10 @@
+<!-- 제이쿼리 3.1.0 ver -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Homepage (jQuery)</title>
+<title>My Homepage (jQuery 3.1.0)</title>
 
 <style>
   body {
@@ -85,8 +86,8 @@
   }
 </style>
 
-<!-- jQuery CDN 추가 -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- jQuery 3.1.0 CDN -->
+<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 
 </head>
 <body>
@@ -95,8 +96,8 @@
   <nav>
     <ul>
       <li><a href="#home">🏠 Home</a></li>
-      <li><a href="#hobby">📷 Hobby</a></li>
-      <li><a href="#favorite">🎤 My Favorite</a></li>
+      <li><a href="#hobby">🌿 Hobby</a></li>
+      <li><a href="#favorite">❤️ My Favorite</a></li>
       <li><a href="#campus">🏫 Campus Life</a></li>
     </ul>
   </nav>
@@ -111,39 +112,42 @@
 </footer>
 
 <script>
-  const routes = {
+  // 페이지별 내용
+  var routes = {
     home: `
-      <h1>About Me</h1>
-      <img src="img/profile.jpg" alt="My Photo">
+      <h1>Introduction</h1>
+      <img src="me.jpg" alt="My Photo">
       <p>Hello! I'm Seonyu, a student studying data science.</p>
     `,
-    campus: `
-      <h1>Campus Life</h1>
-      <img src="img/campus.jpg" alt="Campus Photo">
-      <p>I'm working on various projects and actively participating in club activities!</p>
+    hobby: `
+      <h1>My Hobby</h1>
+      <img src="img/hobby.jpg" alt="Hobby Photo">
+      <p>I love traveling and capturing memories with my camera.</p>
     `,
     favorite: `
       <h1>My Favorite</h1>
       <img src="img/celebrity.jpg" alt="Favorite Artist">
       <p>I really like Young K from DAY6. His sincere and dedicated attitude truly inspires me!</p>
     `,
-    hobby: `
-      <h1>My Hobby</h1>
-      <img src="img/hobby.jpg" alt="Hobby Photo">
-      <p>I love traveling and capturing memories with my camera.</p>
+    campus: `
+      <h1>Campus Life</h1>
+      <img src="img/campus.jpg" alt="Campus Photo">
+      <p>I'm working on various projects and actively participating in club activities!</p>
     `
   };
 
+  // 현재 hash에 따라 콘텐츠 로드
   function loadContent(hash) {
-    const page = hash || 'home';
+    var page = hash || 'home';
     $('#content').html(routes[page] || routes.home);
   }
 
+  // 문서 준비되면 이벤트 연결
   $(document).ready(function() {
-    // 페이지 처음 로딩 시
+    // 첫 로딩 시
     loadContent(location.hash.substring(1));
 
-    // 메뉴 클릭 시 (주소창 #hash가 바뀌면)
+    // 해시가 변경될 때마다 콘텐츠 갱신
     $(window).on('hashchange', function() {
       loadContent(location.hash.substring(1));
     });
@@ -152,3 +156,4 @@
 
 </body>
 </html>
+>>>>>>> 1d4e986 (index.html 수정)
