@@ -67,11 +67,14 @@
 
   main img {
     max-width: 100%;
+    width: 100%;         
     height: auto;
     border-radius: 8px;
-    display: block;       
-    margin: 0.5em auto;     
+    display: block;
+    margin: 0.5em auto;   
+    box-sizing: border-box;
   }
+
 
 
 
@@ -79,11 +82,14 @@
     display: flex;
     flex-direction: column;
     gap: 1em;
+    align-items: center; 
   }
 
   .hobby-item {
     text-align: center;
+    width: 100%;       
   }
+
 
   footer {
     text-align: center;
